@@ -16,4 +16,4 @@ Le dashboard admin est accessible via la route /admin avec les logs suivant:
 user: admin@admin.fr
 password: admin
 
-Le dashboard manager est accessible via la route /managment avec les logs d'un des manager créé par les fixtures.
+Le dashboard manager est accessible via la route /managment avec les logs d'un des manager créé par les fixtures et le password: manager.
