@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ suite.name }}{% endblock %}
+
+{% block body %}
+    {% include 'navbar.html.twig' %}
+    <h2>Liste des réservations</h2>
+    
+    {% include '/managment/reservation_list.html.twig' with { reservationData } %}
+{% endblock %}

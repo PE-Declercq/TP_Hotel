@@ -1,0 +1,16 @@
+
+<article>
+    {#'uploads/img/' ~#}
+    <div><img src="{{ asset(suite.img) }}" width="400" alt="{{ suite.img }}"></div>
+    <h2>{{ suite.name }}</h2>
+    <p>{{ suite.description | raw }}</p>
+    <p>{{ (suite.price / 100) | format_currency('EUR', locale='fr') }}</p>
+    <p>{{ suite.hotel }}</p>
+    {% if suite.available == "0" %}
+        <p>Indisponible</p>
+    {% elseif is_granted("ROLE_USER") %}
+        <a href="/hotel/reservation/{{ suite.id }}">Réservez moi!</a>
+    {% else %}
+        <p>Vous devez vous connecter si vous souhaitez réserver.</p>
+    {% endif %}
+</article>
