@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Récapitulatif{% endblock %}
+
+{% block body %}
+    <h1>Félicitation vous avez réservé la suite {{ reservation.suite.name }} !</h1>
+
+    <h3>Récapitulatif :</h3>
+    <p>Créé le : {{ reservation.creationDate|date('d/m/Y H:i') }}</p>
+    <p>Date de début : {{ reservation.startDate|date('d/m/Y H:i') }}</p>
+    <p>Date de fin : {{ reservation.endDate|date('d/m/Y H:i') }}</p>
+
+    <a href="{{ path('app_home') }}">Retour à la page d'acceuil</a>
+    
+{% endblock %}

@@ -1,0 +1,8 @@
+<article>
+    {#'uploads/img/' ~#}
+    <div><img src="{{ asset(hotel.img) }}" width="400" alt="{{ hotel.img }}"></div>
+    <h2>{{ hotel.name }}</h2>
+    <p>{{ hotel.description|raw }}</p>
+    <p>{{ hotel.address }}, {{ hotel.city }}</p>
+    <a href="/hotel/{{ hotel.id }}-{{ hotel.slug }}" target="blank">Voir les suites disponibles...</a>
+</article>

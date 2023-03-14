@@ -17,3 +17,7 @@ user: admin@admin.fr
 password: admin
 
 Le dashboard manager est accessible via la route /managment avec les logs d'un des manager créé par les fixtures et le password: manager.
+
+Axe d'amélioration: Modifier les formulaires d'update et de crétion des suites accessible par les manager pour forcé la valeur de l'hotel a celui qu'il possède.
+
+PS: Je n'ai pas fais de front, j'ai tout mis dans le reste..

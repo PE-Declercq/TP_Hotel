@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suites{% endblock %}
+
+{% block body %}
+    {% include 'navbar.html.twig' %}
+    <h2>Liste des suites</h2>
+    {% if suites != null %}
+        {% include 'hotel/suite_list.html.twig' with suites %}
+    {% else %}
+        <p>Malheureusement aucune suite n'est disponible pour cet hotel!</p>
+    {% endif %}
+{% endblock %}

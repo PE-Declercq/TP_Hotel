@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    <h1>Hello</h1>
+    {% include 'navbar.html.twig' %}
+    <h2>Liste des hôtels</h2>
+    {% include 'home/hotel_list.html.twig' with hotels %}
+{% endblock %}

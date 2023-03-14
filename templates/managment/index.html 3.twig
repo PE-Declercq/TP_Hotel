@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre Établissement{% endblock %}
+
+{% block body %}
+{% include "navbar.html.twig" %}
+<h1>{{ hotel.name }}</h1>
+<div class="example-wrapper">
+<a href="/managment/suite/create">Créer une suite</a>
+    {% include "managment/suite_list.html.twig" %}
+</div>
+{% endblock %}

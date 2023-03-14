@@ -1,0 +1,8 @@
+<article>
+    <h2>{{ reservation.suiteName }}</h2>
+    <p>Réservé par {{ reservation.userEmail }}</p>
+    <p>Du : {{ reservation.startDate|date('d/m/Y H:i') }}</p>
+    <p>Au : {{ reservation.endDate|date('d/m/Y H:i') }}</p>
+    <p>Créé le : {{ reservation.creationDate|date('d/m/Y H:i') }}</p>
+    <a href="#">Modifier</a>
+</article>
