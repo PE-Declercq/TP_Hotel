@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification{% endblock %}
+
+{% block body %}
+    <h1>Modifier la réservation</h1>
+
+    {% if errorMessage is defined %}
+    <div>{{ errorMessage }}</div>
+    {% endif %}
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Submit</button>
+        <a href="{{ app.request.headers.get('referer') }}">Annuler</a>
+    {{ form_end(form) }}
+{% endblock %}

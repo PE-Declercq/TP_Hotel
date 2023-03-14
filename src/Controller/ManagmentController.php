@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Suite;
 use App\Form\CreateSuiteType;
+use App\Form\UpdateReservationType;
 use App\Form\UpdateSuiteType;
 use App\Repository\HotelsRepository;
 use App\Repository\ReservationRepository;
@@ -74,6 +75,7 @@ class ManagmentController extends AbstractController
         foreach ($reservations as $reservation) {
             $reservationsData[] = [
                 'suiteName' => $reservation->getSuite()->getName(),
+                'id' => $reservation->getId(),
                 'creationDate' => $reservation->getCreationDate(),
                 'startDate' => $reservation->getStartDate(),
                 'endDate' => $reservation->getEndDate(),
@@ -85,6 +87,37 @@ class ManagmentController extends AbstractController
             'controller_name' => 'ManagmentController',
             'suite' => $suite,
             'reservationData' => $reservationsData,
+        ]);
+    }
+
+    #[Route('/managment/{id}-reservation-update', name: 'app_reservation_update_managment')]
+    public function renderUpdateReservation(Request $request, ReservationRepository $reservationRepo, ManagerRegistry $doctrine, int $id): Response
+    {
+        $reservation = $reservationRepo->find($id);
+
+        $form = $this->createForm(UpdateReservationType::class, $reservation, [
+            'reservation' => $reservation
+        ]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+
+            $reservation->setStartDate($form->get('startDate')->getData());
+            $reservation->setEndDate($form->get('endDate')->getData());
+            $reservation->setUser($form->get('user')->getData());
+            $reservation->setSuite($form->get('suite')->getData());
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_managment');
+        }
+
+        return $this->render('managment/update_reservation.html.twig', [
+            'controller_name' => 'ManagmentController',
+            'reservation' => $reservation,
+            'form' => $form->createView()
         ]);
     }
 
@@ -102,9 +135,6 @@ class ManagmentController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $doctrine->getManager();
 
-            // Pas besoin de persister la suite, elle existe déjà en base de données
-
-            // Mettre à jour les propriétés de la suite existante avec les valeurs du formulaire
             $suite->setName($form->get('name')->getData());
             $suite->setImg($form->get('img')->getData());
             $suite->setDescription($form->get('description')->getData());

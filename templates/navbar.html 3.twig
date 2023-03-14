@@ -1,0 +1,9 @@
+<a href="{{ path('app_home') }}">Home</a>
+{% if is_granted('ROLE_MANAGER') %}
+<a href="/managment">Gérer mon établissement</a>
+{% endif %}
+{% if app.user %}
+<a href="/logout">Déconnection</a>
+{% else %}
+<a href="/login">Se connecter</a>
+{% endif %}

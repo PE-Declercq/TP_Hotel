@@ -11,6 +11,7 @@ return [
     'app_reservation_success' => [['id'], ['_controller' => 'App\\Controller\\HotelController::reservationSuccess'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/hotel/recapitulatif']], [], [], []],
     'app_managment' => [[], ['_controller' => 'App\\Controller\\ManagmentController::index'], [], [['text', '/managment']], [], [], []],
     'app_reservation_managment' => [['id'], ['_controller' => 'App\\Controller\\ManagmentController::reservationsView'], [], [['text', '-reservations'], ['variable', '/', '[^/\\-]++', 'id', true], ['text', '/managment']], [], [], []],
+    'app_reservation_update_managment' => [['id'], ['_controller' => 'App\\Controller\\ManagmentController::renderUpdateReservation'], [], [['text', '-reservation-update'], ['variable', '/', '[^/\\-]++', 'id', true], ['text', '/managment']], [], [], []],
     'app_suite_managment' => [['id'], ['_controller' => 'App\\Controller\\ManagmentController::renderSuiteUpdateForm'], [], [['text', '-suite'], ['variable', '/', '[^/\\-]++', 'id', true], ['text', '/managment']], [], [], []],
     'app_create_suite_managment' => [[], ['_controller' => 'App\\Controller\\ManagmentController::renderSuiteCreateForm'], [], [['text', '/managment/suite/create']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],

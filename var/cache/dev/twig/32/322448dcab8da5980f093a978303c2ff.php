@@ -58,7 +58,10 @@ class __TwigTemplate_f41f24c0b47b17ffa9d37a6cff94fb8c extends Template
         // line 6
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["reservation"]) || array_key_exists("reservation", $context) ? $context["reservation"] : (function () { throw new RuntimeError('Variable "reservation" does not exist.', 6, $this->source); })()), "creationDate", [], "any", false, false, false, 6), "d/m/Y H:i"), "html", null, true);
         echo "</p>
-    <a href=\"#\">Modifier</a>
+    <a href=\"/managment/";
+        // line 7
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["reservation"]) || array_key_exists("reservation", $context) ? $context["reservation"] : (function () { throw new RuntimeError('Variable "reservation" does not exist.', 7, $this->source); })()), "id", [], "any", false, false, false, 7), "html", null, true);
+        echo "-reservation-update\">Modifier</a>
 </article>";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -77,7 +80,7 @@ class __TwigTemplate_f41f24c0b47b17ffa9d37a6cff94fb8c extends Template
 
     public function getDebugInfo()
     {
-        return array (  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 2,  40 => 1,);
+        return array (  63 => 7,  59 => 6,  55 => 5,  51 => 4,  47 => 3,  43 => 2,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -88,7 +91,7 @@ class __TwigTemplate_f41f24c0b47b17ffa9d37a6cff94fb8c extends Template
     <p>Du : {{ reservation.startDate|date('d/m/Y H:i') }}</p>
     <p>Au : {{ reservation.endDate|date('d/m/Y H:i') }}</p>
     <p>Créé le : {{ reservation.creationDate|date('d/m/Y H:i') }}</p>
-    <a href=\"#\">Modifier</a>
+    <a href=\"/managment/{{ reservation.id }}-reservation-update\">Modifier</a>
 </article>", "managment/reservation_card.html.twig", "/Users/p-edeclercq/Documents/cours b3-dw/POO/Exo/templates/managment/reservation_card.html.twig");
     }
 }

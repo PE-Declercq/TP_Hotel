@@ -4,5 +4,5 @@
     <p>Du : {{ reservation.startDate|date('d/m/Y H:i') }}</p>
     <p>Au : {{ reservation.endDate|date('d/m/Y H:i') }}</p>
     <p>Créé le : {{ reservation.creationDate|date('d/m/Y H:i') }}</p>
-    <a href="#">Modifier</a>
+    <a href="/managment/{{ reservation.id }}-reservation-update">Modifier</a>
 </article>
