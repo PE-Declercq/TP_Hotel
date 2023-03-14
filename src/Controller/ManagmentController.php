@@ -2,12 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\Suite;
+use App\Form\UpdateSuiteType;
 use App\Repository\HotelsRepository;
 use App\Repository\ReservationRepository;
 use App\Repository\SuiteRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -80,6 +84,42 @@ class ManagmentController extends AbstractController
             'controller_name' => 'ManagmentController',
             'suite' => $suite,
             'reservationData' => $reservationsData,
+        ]);
+    }
+
+    #[Route('/managment/{id}-suite', name: 'app_suite_managment')]
+    public function renderSuiteUpdateForm(Request $request, SuiteRepository $suiteRepo, ManagerRegistry $doctrine, int $id): Response
+    {
+        $suite = $suiteRepo->find($id);
+
+        $form = $this->createForm(UpdateSuiteType::class, $suite, [
+            'suite' => $suite
+        ]);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+
+            // Pas besoin de persister la suite, elle existe déjà en base de données
+
+            // Mettre à jour les propriétés de la suite existante avec les valeurs du formulaire
+            $suite->setName($form->get('name')->getData());
+            $suite->setImg($form->get('img')->getData());
+            $suite->setDescription($form->get('description')->getData());
+            $suite->setPrice($form->get('price')->getData());
+            $suite->setAvailable($form->get('available')->getData());
+            $suite->setHotel($form->get('hotel')->getData());
+
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_managment');
+        }
+
+        return $this->render('managment/update_suite.html.twig', [
+            'controller_name' => 'ManagmentController',
+            'suite' => $suite,
+            'form' => $form->createView()
         ]);
     }
 }

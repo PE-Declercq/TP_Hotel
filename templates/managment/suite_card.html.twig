@@ -4,5 +4,5 @@
     <p>{{ (suite.price / 100) | format_currency('EUR', locale='fr') }}</p>
     <p>{{ suite.hotel }}</p>
     <a href="/managment/{{ suite.id }}-reservations">Voir les réservation</a>
-    <a href="#">Modifier</a>
+    <a href="/managment/{{ suite.id }}-suite">Modifier</a>
 </article>

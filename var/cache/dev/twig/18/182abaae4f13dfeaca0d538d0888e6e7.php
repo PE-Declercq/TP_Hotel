@@ -55,7 +55,10 @@ class __TwigTemplate_a6d5e93e4324d740ade606ebd841bbd9 extends Template
         // line 6
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["suite"]) || array_key_exists("suite", $context) ? $context["suite"] : (function () { throw new RuntimeError('Variable "suite" does not exist.', 6, $this->source); })()), "id", [], "any", false, false, false, 6), "html", null, true);
         echo "-reservations\">Voir les réservation</a>
-    <a href=\"#\">Modifier</a>
+    <a href=\"/managment/";
+        // line 7
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["suite"]) || array_key_exists("suite", $context) ? $context["suite"] : (function () { throw new RuntimeError('Variable "suite" does not exist.', 7, $this->source); })()), "id", [], "any", false, false, false, 7), "html", null, true);
+        echo "-suite\">Modifier</a>
 </article>";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -74,7 +77,7 @@ class __TwigTemplate_a6d5e93e4324d740ade606ebd841bbd9 extends Template
 
     public function getDebugInfo()
     {
-        return array (  56 => 6,  52 => 5,  48 => 4,  44 => 3,  40 => 1,);
+        return array (  60 => 7,  56 => 6,  52 => 5,  48 => 4,  44 => 3,  40 => 1,);
     }
 
     public function getSourceContext()
@@ -85,7 +88,7 @@ class __TwigTemplate_a6d5e93e4324d740ade606ebd841bbd9 extends Template
     <p>{{ (suite.price / 100) | format_currency('EUR', locale='fr') }}</p>
     <p>{{ suite.hotel }}</p>
     <a href=\"/managment/{{ suite.id }}-reservations\">Voir les réservation</a>
-    <a href=\"#\">Modifier</a>
+    <a href=\"/managment/{{ suite.id }}-suite\">Modifier</a>
 </article>", "managment/suite_card.html.twig", "/Users/p-edeclercq/Documents/cours b3-dw/POO/Exo/templates/managment/suite_card.html.twig");
     }
 }

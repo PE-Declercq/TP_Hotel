@@ -24,7 +24,10 @@ return [
                         .'|capitulatif/([^/]++)(*:130)'
                     .')'
                 .')'
-                .'|/managment/([^/\\-]++)\\-reservations(*:175)'
+                .'|/managment/([^/\\-]++)\\-(?'
+                    .'|reservations(*:178)'
+                    .'|suite(*:191)'
+                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -32,8 +35,9 @@ return [
         72 => [[['_route' => 'app_hotel', '_controller' => 'App\\Controller\\HotelController::index'], ['id', 'slug'], null, null, false, true, null]],
         102 => [[['_route' => 'app_hotel_reservation', '_controller' => 'App\\Controller\\HotelController::renderReservationForm'], ['id'], null, null, false, true, null]],
         130 => [[['_route' => 'app_reservation_success', '_controller' => 'App\\Controller\\HotelController::reservationSuccess'], ['id'], null, null, false, true, null]],
-        175 => [
-            [['_route' => 'app_reservation_managment', '_controller' => 'App\\Controller\\ManagmentController::reservationsView'], ['id'], null, null, false, false, null],
+        178 => [[['_route' => 'app_reservation_managment', '_controller' => 'App\\Controller\\ManagmentController::reservationsView'], ['id'], null, null, false, false, null]],
+        191 => [
+            [['_route' => 'app_suite_managment', '_controller' => 'App\\Controller\\ManagmentController::renderSuiteUpdateForm'], ['id'], null, null, false, false, null],
             [null, null, null, null, false, false, 0],
         ],
     ],
