@@ -94,9 +94,13 @@ class __TwigTemplate_6b878366972a6b3065b731e476d126e6 extends Template
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 13, $this->source); })()), 'widget');
         echo "
         <button type=\"submit\">Submit</button>
-    ";
+        <a href=\"";
         // line 15
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 15, $this->source); })()), 'form_end');
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 15, $this->source); })()), "request", [], "any", false, false, false, 15), "headers", [], "any", false, false, false, 15), "get", [0 => "referer"], "method", false, false, false, 15), "html", null, true);
+        echo "\">Annuler</a>
+    ";
+        // line 16
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 16, $this->source); })()), 'form_end');
         echo "
 ";
         
@@ -116,7 +120,7 @@ class __TwigTemplate_6b878366972a6b3065b731e476d126e6 extends Template
 
     public function getDebugInfo()
     {
-        return array (  99 => 15,  94 => 13,  90 => 12,  87 => 11,  81 => 9,  79 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  103 => 16,  99 => 15,  94 => 13,  90 => 12,  87 => 11,  81 => 9,  79 => 8,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -135,6 +139,7 @@ class __TwigTemplate_6b878366972a6b3065b731e476d126e6 extends Template
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <button type=\"submit\">Submit</button>
+        <a href=\"{{ app.request.headers.get('referer') }}\">Annuler</a>
     {{ form_end(form) }}
 {% endblock %}
 ", "managment/update_suite.html.twig", "/Users/p-edeclercq/Documents/cours b3-dw/POO/Exo/templates/managment/update_suite.html.twig");

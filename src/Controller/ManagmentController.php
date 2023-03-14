@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Suite;
+use App\Form\CreateSuiteType;
 use App\Form\UpdateSuiteType;
 use App\Repository\HotelsRepository;
 use App\Repository\ReservationRepository;
@@ -117,6 +118,32 @@ class ManagmentController extends AbstractController
         }
 
         return $this->render('managment/update_suite.html.twig', [
+            'controller_name' => 'ManagmentController',
+            'suite' => $suite,
+            'form' => $form->createView()
+        ]);
+    }
+
+    #[Route('/managment/suite/create', name: 'app_create_suite_managment')]
+    public function renderSuiteCreateForm(Request $request, ManagerRegistry $doctrine): Response
+    {
+        $suite = new Suite();
+
+        $form = $this->createForm(CreateSuiteType::class, $suite);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $doctrine->getManager();
+
+
+            $entityManager->persist($suite);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_managment');
+        }
+
+        return $this->render('managment/create_suite.html.twig', [
             'controller_name' => 'ManagmentController',
             'suite' => $suite,
             'form' => $form->createView()

@@ -11,6 +11,7 @@ return [
         '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\Admin\\DashboardController::index'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'app_home', '_controller' => 'App\\Controller\\HomeController::index'], null, null, null, false, false, null]],
         '/managment' => [[['_route' => 'app_managment', '_controller' => 'App\\Controller\\ManagmentController::index'], null, null, null, false, false, null]],
+        '/managment/suite/create' => [[['_route' => 'app_create_suite_managment', '_controller' => 'App\\Controller\\ManagmentController::renderSuiteCreateForm'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],

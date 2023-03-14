@@ -12,5 +12,6 @@
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <button type="submit">Submit</button>
+        <a href="{{ app.request.headers.get('referer') }}">Annuler</a>
     {{ form_end(form) }}
 {% endblock %}

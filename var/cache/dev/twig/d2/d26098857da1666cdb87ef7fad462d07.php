@@ -76,10 +76,11 @@ class __TwigTemplate_cd5070d7180f689cdb4765b543cf21d4 extends Template
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["hotel"]) || array_key_exists("hotel", $context) ? $context["hotel"] : (function () { throw new RuntimeError('Variable "hotel" does not exist.', 7, $this->source); })()), "name", [], "any", false, false, false, 7), "html", null, true);
         echo "</h1>
 <div class=\"example-wrapper\">
+<a href=\"/managment/suite/create\">Créer une suite</a>
     ";
-        // line 9
-        $this->loadTemplate("managment/suite_list.html.twig", "managment/index.html.twig", 9)->display($context);
         // line 10
+        $this->loadTemplate("managment/suite_list.html.twig", "managment/index.html.twig", 10)->display($context);
+        // line 11
         echo "</div>
 ";
         
@@ -99,7 +100,7 @@ class __TwigTemplate_cd5070d7180f689cdb4765b543cf21d4 extends Template
 
     public function getDebugInfo()
     {
-        return array (  83 => 10,  81 => 9,  75 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
+        return array (  84 => 11,  82 => 10,  75 => 7,  73 => 6,  66 => 5,  53 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -112,6 +113,7 @@ class __TwigTemplate_cd5070d7180f689cdb4765b543cf21d4 extends Template
 {% include \"navbar.html.twig\" %}
 <h1>{{ hotel.name }}</h1>
 <div class=\"example-wrapper\">
+<a href=\"/managment/suite/create\">Créer une suite</a>
     {% include \"managment/suite_list.html.twig\" %}
 </div>
 {% endblock %}", "managment/index.html.twig", "/Users/p-edeclercq/Documents/cours b3-dw/POO/Exo/templates/managment/index.html.twig");
